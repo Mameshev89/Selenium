@@ -42,7 +42,7 @@ public class CallbackTest {
         driver.findElement(By.className("button")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         String expected ="Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.";
-        assertEquals(expected,text);
+        assertEquals(expected, text);
 
 
     }
