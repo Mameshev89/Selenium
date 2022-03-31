@@ -114,4 +114,15 @@ public class CallbackTest {
         assertEquals(expected, text);
     }
 
+    @Test
+    public void shouldSendWrongPhone2() {
+        driver.get("http://localhost:9999");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Василий Пупкин");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+7-999-222-1118");
+        driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+        driver.findElement(By.className("button")).click();
+        String text = driver.findElement(By.cssSelector("[data-test-id='phone'].input_invalid .input__sub")).getText().trim();
+        String expected = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
+        assertEquals(expected, text);
+    }
 }
